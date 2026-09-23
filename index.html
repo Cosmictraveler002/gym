@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IRONCLAD — Strength Club</title>
+  <meta name="description" content="IRONCLAD is a cinematic strength club: barbell strength, mobility and conditioning, coached for people who prefer the hours nobody is watching.">
+  <link rel="icon" href="data:,">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#hero">Skip to content</a>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span class="progress__bar" data-progress></span></div>
+  <div class="cursor" aria-hidden="true" data-cursor>
+    <span class="cursor__dot"></span>
+    <span class="cursor__label"></span>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" data-header>
+    <a class="header__brand" href="#hero" data-cursor-hover>
+      <span class="header__mark">Core Zone</span>
+      <span class="header__sub">FITNESS CLUB</span>
+    </a>
+
+    <nav class="header__nav" aria-label="Primary">
+      <a href="#manifesto" data-cursor-hover>Manifesto</a>
+      <a href="#philosophy" data-cursor-hover>Philosophy</a>
+      <a href="#programs" data-cursor-hover>Programs</a>
+      <a href="#conditioning" data-cursor-hover>Conditioning</a>
+      <a href="#coaches" data-cursor-hover>Coaches</a>
+    </nav>
+
+    <a class="header__cta" href="#closing" data-cursor-hover data-cursor-label="JOIN">
+      <span>Join</span>
+    </a>
+  </header>
+
+  <main>
+
+    <!-- ============ 01 HERO ============ -->
+    <section class="scene scene--hero" id="hero" data-section="hero">
+      <div class="scene__pin scene__pin--hero" data-hero-pin>
+
+        <div class="scene__background scene__background--hero"></div>
+
+        <div class="scene__media-wrap scene__media-wrap--hero" data-hero-media>
+          <video
+            class="scene__media"
+            src="01_hero_video.mp4"
+            data-video
+            data-autoplay
+            muted
+            playsinline
+            loop
+            preload="auto"
+            aria-hidden="true"
+            tabindex="-1"></video>
+          <div class="scene__scrim scene__scrim--hero" aria-hidden="true"></div>
+        </div>
+
+        <div class="scene__content scene__content--hero" data-hero-content>
+          <p class="eyebrow" data-hero-line>EST. 2012 — MEMBERSHIP BY APPLICATION</p>
+
+          <h1 class="display display--hero">
+            <span class="line-mask"><span class="line" data-hero-line>BUILT IN</span></span>
+            <span class="line-mask"><span class="line line--accent" data-hero-line>THE DARK</span></span>
+          </h1>
+
+          <p class="lede" data-hero-line>
+            A strength club for people who prefer the hours nobody is watching.
+            Barbell work, mobility and conditioning — directed like a film, trained like a habit.
+          </p>
+
+          <div class="actions" data-hero-line>
+            <a class="btn btn--solid" href="#closing" data-cursor-hover data-cursor-label="JOIN">
+              Start your trial
+            </a>
+            <a class="btn btn--ghost" href="#programs" data-cursor-hover>
+              See the programs
+            </a>
+          </div>
+        </div>
+
+        <div class="scroll-hint" data-hero-line aria-hidden="true">
+          <span>SCROLL</span>
+          <span class="scroll-hint__line"></span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ 02 MANIFESTO ============ -->
+    <section class="scene scene--manifesto" id="manifesto" data-section="manifesto">
+      <div class="manifesto__inner">
+        <p class="eyebrow eyebrow--center" data-manifesto-fade>MANIFESTO</p>
+
+        <p class="manifesto__text" data-manifesto-text>
+          <span class="line-mask"><span class="line">We don’t sell transformation.</span></span>
+          <span class="line-mask"><span class="line">We sell the hours</span></span>
+          <span class="line-mask"><span class="line line--accent">nobody sees.</span></span>
+        </p>
+
+        <p class="manifesto__foot" data-manifesto-fade>
+          No highlights. No shortcuts. A room, a bar, a coach who is paying attention.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ 03 CHALK / PHILOSOPHY — SIGNATURE SCROLL REVEAL ============ -->
+    <section class="scene scene--chalk" id="philosophy" data-section="chalk">
+      <div class="scene__pin scene__pin--chalk" data-chalk-pin>
+
+        <div class="scene__background scene__background--chalk" data-chalk-bg></div>
+
+        <div class="scene__media-wrap scene__media-wrap--chalk" data-chalk-clip>
+          <video
+            class="scene__media"
+            data-src="02_chalk%20blast.mp4"
+            data-video
+            muted
+            playsinline
+            loop
+            preload="none"
+            aria-hidden="true"
+            tabindex="-1"></video>
+          <div class="scene__scrim scene__scrim--chalk" aria-hidden="true"></div>
+        </div>
+
+        <div class="scene__content scene__content--chalk" data-chalk-content>
+          <p class="eyebrow" data-chalk-text>PHILOSOPHY</p>
+          <h2 class="display display--chalk">
+            <span class="line-mask"><span class="line" data-chalk-text>The grip decides</span></span>
+            <span class="line-mask"><span class="line" data-chalk-text>everything else.</span></span>
+          </h2>
+          <p class="body body--chalk" data-chalk-text>
+            Chalk is the last honest test before the bar moves. If the grip fails,
+            the plan was fiction. We coach from the contact point outward — hands,
+            bracing, position — so the load is earned instead of negotiated.
+          </p>
+        </div>
+
+        <div class="chalk-index" aria-hidden="true" data-chalk-text>
+          <span>02</span>
+          <span class="chalk-index__rule"></span>
+          <span>PHILOSOPHY</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ 04 PROGRAMS ============ -->
+    <section class="scene scene--programs" id="programs" data-section="programs">
+      <div class="programs__head">
+        <p class="eyebrow" data-program-reveal>PROGRAMS</p>
+        <h2 class="display display--section">
+          <span class="line-mask"><span class="line" data-program-reveal>Two ways</span></span>
+          <span class="line-mask"><span class="line" data-program-reveal>to train here.</span></span>
+        </h2>
+        <p class="body body--narrow" data-program-reveal>
+          Both blocks are coached, progressive and written for real schedules.
+          They differ in temperature: one is weight, the other is recovery.
+        </p>
+      </div>
+
+      <div class="programs__grid">
+
+        <article class="card card--strength" data-program-card>
+          <div class="card__media">
+            <video
+              class="card__video"
+              data-src="05_strength%20video.mp4"
+              data-video
+              muted
+              playsinline
+              loop
+              preload="none"
+              aria-hidden="true"
+              tabindex="-1"></video>
+            <div class="card__scrim" aria-hidden="true"></div>
+            <span class="card__number" aria-hidden="true">01</span>
+          </div>
+
+          <div class="card__body">
+            <p class="card__meta">4 DAYS / WEEK — INTERMEDIATE &amp; UP</p>
+            <h3 class="card__title">Strength</h3>
+            <p class="card__text">
+              A four-day barbell block. Squat, press, hinge, pull — progressive
+              loading programmed in weeks, coached down to the rep.
+            </p>
+            <ul class="card__list">
+              <li>Linear then wave periodisation</li>
+              <li>Weekly load and bar-speed review</li>
+              <li>Competition prep on request</li>
+            </ul>
+            <a class="card__link" href="#closing" data-cursor-hover data-cursor-label="VIEW">
+              <span>View program</span><span class="card__arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="card card--mobility" data-program-card>
+          <div class="card__media">
+            <video
+              class="card__video"
+              data-src="06_Athlete_stretching_on_gym_floor.mp4"
+              data-video
+              muted
+              playsinline
+              loop
+              preload="none"
+              aria-hidden="true"
+              tabindex="-1"></video>
+            <div class="card__scrim" aria-hidden="true"></div>
+            <span class="card__number" aria-hidden="true">02</span>
+          </div>
+
+          <div class="card__body">
+            <p class="card__meta">3 DAYS / WEEK — ALL LEVELS</p>
+            <h3 class="card__title">Mobility</h3>
+            <p class="card__text">
+              Loaded ranges, controlled breathing and slow positional work.
+              Built to keep the strength block possible for another decade.
+            </p>
+            <ul class="card__list">
+              <li>Hip, ankle and shoulder capacity</li>
+              <li>Breathing and down-regulation work</li>
+              <li>Recovery days that still count</li>
+            </ul>
+            <a class="card__link" href="#closing" data-cursor-hover data-cursor-label="VIEW">
+              <span>View program</span><span class="card__arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ 05 CONDITIONING / SPRINTER — SIGNATURE PINNED SCALE ============ -->
+    <section class="scene scene--sprinter" id="conditioning" data-section="sprinter">
+      <div class="scene__pin scene__pin--sprinter" data-sprinter-pin>
+
+        <div class="scene__background scene__background--sprinter" data-sprinter-bg></div>
+
+        <div class="scene__media-wrap scene__media-wrap--sprinter" data-sprinter-media>
+          <video
+            class="scene__media"
+            data-src="03_sprinting_on_track.mp4"
+            data-video
+            muted
+            playsinline
+            loop
+            preload="none"
+            aria-hidden="true"
+            tabindex="-1"></video>
+          <div class="scene__scrim scene__scrim--sprinter" aria-hidden="true"></div>
+        </div>
+
+        <div class="scene__content scene__content--sprinter" data-sprinter-content>
+          <p class="eyebrow" data-sprinter-text>CONDITIONING</p>
+          <h2 class="display display--sprinter">
+            <span class="line-mask"><span class="line" data-sprinter-text>The engine</span></span>
+            <span class="line-mask"><span class="line" data-sprinter-text>room.</span></span>
+          </h2>
+          <p class="body body--sprinter" data-sprinter-text>
+            Track work, sleds and intervals — prescribed, timed and honest.
+            Speed is not a talent you are assigned; it is a stride you repeat
+            until the body stops arguing.
+          </p>
+          <p class="data-row" data-sprinter-text>
+            <span>300M REPEATS</span><span>SLED PUSH</span><span>RPE-BASED</span>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ 06 COACHES ============ -->
+    <section class="scene scene--coaches" id="coaches" data-section="coaches">
+      <div class="coaches__layout">
+
+        <div class="coaches__portrait" data-coach-media>
+          <video
+            class="coaches__video"
+            data-src="04_Fitness_coach_standing_in_studio.mp4"
+            data-video
+            muted
+            playsinline
+            loop
+            preload="none"
+            aria-hidden="true"
+            tabindex="-1"></video>
+          <div class="coaches__caption">
+            <span aria-hidden="true">04</span>
+            <span>HEAD COACH — IN SESSION</span>
+          </div>
+        </div>
+
+        <div class="coaches__copy">
+          <p class="eyebrow" data-coach-text>COACHES</p>
+          <h2 class="display display--section">
+            <span class="line-mask"><span class="line" data-coach-text>People who</span></span>
+            <span class="line-mask"><span class="line" data-coach-text>watch the rep.</span></span>
+          </h2>
+
+          <p class="body" data-coach-text>
+            Four coaches, one method: fewer members per floor, more attention per set.
+            You are not left alone with an app and a rack.
+          </p>
+
+          <ul class="roster">
+            <li class="roster__item" data-coach-roster>
+              <span class="roster__name">Mara Voss</span>
+              <span class="roster__role">Head Coach — Strength</span>
+              <span class="roster__years">11 YRS</span>
+            </li>
+            <li class="roster__item" data-coach-roster>
+              <span class="roster__name">Elias Rook</span>
+              <span class="roster__role">Barbell &amp; Competition</span>
+              <span class="roster__years">09 YRS</span>
+            </li>
+            <li class="roster__item" data-coach-roster>
+              <span class="roster__name">Jun Park</span>
+              <span class="roster__role">Mobility &amp; Recovery</span>
+              <span class="roster__years">07 YRS</span>
+            </li>
+            <li class="roster__item" data-coach-roster>
+              <span class="roster__name">Tomas Veld</span>
+              <span class="roster__role">Conditioning</span>
+              <span class="roster__years">06 YRS</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ 07 RESULTS ============ -->
+    <section class="scene scene--results" id="results" data-section="results">
+      <div class="results__inner">
+        <div class="results__head">
+          <p class="eyebrow" data-result-fade>RESULTS</p>
+          <h2 class="display display--section">
+            <span class="line-mask"><span class="line" data-result-fade>What the mirror</span></span>
+            <span class="line-mask"><span class="line" data-result-fade>doesn’t measure.</span></span>
+          </h2>
+        </div>
+
+        <dl class="stats">
+          <div class="stat" data-stat>
+            <dt class="stat__label">Athletes coached</dt>
+            <dd class="stat__value"><span data-count="1240" data-suffix="+">0</span></dd>
+          </div>
+          <div class="stat" data-stat>
+            <dt class="stat__label">12-month retention</dt>
+            <dd class="stat__value"><span data-count="96" data-suffix="%">0</span></dd>
+          </div>
+          <div class="stat" data-stat>
+            <dt class="stat__label">Competition medals</dt>
+            <dd class="stat__value"><span data-count="18">0</span></dd>
+          </div>
+          <div class="stat" data-stat>
+            <dt class="stat__label">Members per coach</dt>
+            <dd class="stat__value"><span data-count="12">0</span></dd>
+          </div>
+        </dl>
+
+        <p class="results__note" data-result-fade>
+          Numbers are recorded every quarter and printed in the club — the same
+          ones we use internally. Progress is a document, not a mood.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ 08 CLOSING / CTA ============ -->
+    <section class="scene scene--closing" id="closing" data-section="closing">
+      <div class="scene__pin scene__pin--closing" data-closing-pin>
+
+        <div class="scene__media-wrap scene__media-wrap--closing">
+          <video
+            class="scene__media"
+            data-src="07_Closing_Empty_gym_at_night.mp4"
+            data-video
+            muted
+            playsinline
+            loop
+            preload="none"
+            aria-hidden="true"
+            tabindex="-1"></video>
+          <div class="scene__scrim scene__scrim--closing" aria-hidden="true"></div>
+        </div>
+
+        <div class="scene__content scene__content--closing" data-closing-content>
+          <p class="eyebrow eyebrow--center" data-closing-text>MEMBERSHIP</p>
+
+          <h2 class="display display--closing">
+            <span class="line-mask"><span class="line" data-closing-text>The people are gone.</span></span>
+            <span class="line-mask"><span class="line line--muted" data-closing-text>The place remains.</span></span>
+          </h2>
+
+          <div class="closing__cta" data-closing-cta>
+            <a class="btn btn--solid btn--lg" href="#closing" data-cursor-hover data-cursor-label="JOIN">
+              Reserve your first session
+            </a>
+            <p class="closing__fine">Applications reviewed weekly. No contracts, no joining fee.</p>
+          </div>
+        </div>
+
+        <footer class="footer" data-closing-footer>
+          <div class="footer__col">
+            <span class="footer__label">CLUB</span>
+            <span>IRONCLAD Athletic Club</span>
+            <span>44 Foundry Lane, Unit B</span>
+          </div>
+          <div class="footer__col">
+            <span class="footer__label">HOURS</span>
+            <span>Mon–Fri 05:30 — 22:00</span>
+            <span>Sat–Sun 07:00 — 18:00</span>
+          </div>
+          <div class="footer__col">
+            <span class="footer__label">CONTACT</span>
+            <a href="mailto:apply@ironclad.club" data-cursor-hover>apply@ironclad.club</a>
+            <a href="tel:+15550142200" data-cursor-hover>+1 555 014 2200</a>
+          </div>
+          <div class="footer__col footer__col--end">
+            <span class="footer__label">© 2026</span>
+            <span>All rights reserved</span>
+          </div>
+        </footer>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+  <script>document.documentElement.classList.add('js');</script>
+</body>
+</html>
