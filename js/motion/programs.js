@@ -17,8 +17,8 @@ export function initPrograms() {
     maskedTextReveal(lines, {
       trigger: head,
       start: 'top 78%',
-      duration: 1.05,
-      stagger: 0.1,
+      duration: 1.2,
+      stagger: 0.12,
     });
   }
 
@@ -26,22 +26,25 @@ export function initPrograms() {
     trigger: head,
     start: 'top 75%',
     delay: 0.25,
-    y: 22,
-    stagger: 0.15,
+    y: 24,
+    stagger: 0.12,
   });
 
-  gsap.fromTo(
+  /* cards ride the scroll upward — one scrubbed timeline, the second
+     card trailing the first by a slight stagger */
+  const grid = section.querySelector('.programs__grid');
+  const cardsTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: grid,
+      start: 'top 85%',
+      end: 'top 35%',
+      scrub: 1,
+      invalidateOnRefresh: true,
+    },
+  });
+  cardsTl.fromTo(
     cards,
-    { opacity: 0, y: 70, scale: 0.98 },
-    {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      duration: 1.2,
-      /* ½ second between cards — ScrollTrigger-controlled entrance */
-      stagger: 0.5,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: section.querySelector('.programs__grid'), start: 'top 78%', once: true },
-    }
+    { y: 140, opacity: 0, scale: 0.98 },
+    { y: 0, opacity: 1, scale: 1, ease: 'none', duration: 0.6, stagger: 0.18 }
   );
 }

@@ -12,9 +12,10 @@ export const isReduced = REDUCED;
 /**
  * pinSequence — temporarily hold a cinematic scene while scroll drives the
  * returned timeline. Reserved for the two signature sequences only.
+ * Scrub is numeric (smoothing in seconds) so pinned motion never stutters.
  * Returns null when motion is reduced.
  */
-export function pinSequence(trigger, { start = 'top top', end = '+=200%', scrub = 0.8, anticipate = 1 } = {}) {
+export function pinSequence(trigger, { start = 'top top', end = '+=200%', scrub = 1, anticipate = 1 } = {}) {
   if (REDUCED) return null;
   return gsap.timeline({
     scrollTrigger: {
@@ -37,7 +38,7 @@ export function pinSequence(trigger, { start = 'top top', end = '+=200%', scrub 
  */
 export function revealY(
   wrap,
-  { from = 'inset(18% 0 18% 0)', to = 'inset(0% 0 0% 0)', duration = 0.55, at = 0, tl = null, trigger, start, end, scrub = true } = {}
+  { from = 'inset(18% 0 18% 0)', to = 'inset(0% 0 0% 0)', duration = 0.55, at = 0, tl = null, trigger, start, end, scrub = true, ease = 'none' } = {}
 ) {
   if (REDUCED) {
     gsap.set(wrap, { clipPath: to });
@@ -45,11 +46,11 @@ export function revealY(
   }
   gsap.set(wrap, { clipPath: from });
 
-  if (tl) return tl.to(wrap, { clipPath: to, ease: 'none', duration }, at);
+  if (tl) return tl.to(wrap, { clipPath: to, ease, duration }, at);
 
   return gsap.to(wrap, {
     clipPath: to,
-    ease: 'none',
+    ease,
     duration,
     scrollTrigger: { trigger, start, end, scrub, invalidateOnRefresh: true },
   });
@@ -64,7 +65,7 @@ export function scaleMedia(
   target,
   from,
   to,
-  { duration = 0.6, at = 0, tl = null, trigger, start, end, scrub = true } = {}
+  { duration = 0.6, at = 0, tl = null, trigger, start, end, scrub = true, ease = 'none' } = {}
 ) {
   if (REDUCED) {
     gsap.set(target, { scale: 1 });
@@ -72,11 +73,11 @@ export function scaleMedia(
   }
   gsap.set(target, { scale: from });
 
-  if (tl) return tl.to(target, { scale: to, ease: 'none', duration }, at);
+  if (tl) return tl.to(target, { scale: to, ease, duration }, at);
 
   return gsap.to(target, {
     scale: to,
-    ease: 'none',
+    ease,
     duration,
     scrollTrigger: { trigger, start, end, scrub, invalidateOnRefresh: true },
   });
@@ -91,16 +92,16 @@ export function parallaxLayer(
   target,
   fromY,
   toY,
-  { duration = 1, at = 0, tl = null, trigger, start = 'top bottom', end = 'bottom top', scrub = true } = {}
+  { duration = 1, at = 0, tl = null, trigger, start = 'top bottom', end = 'bottom top', scrub = true, ease = 'none' } = {}
 ) {
   if (REDUCED) return null;
 
-  if (tl) return tl.fromTo(target, { yPercent: fromY }, { yPercent: toY, ease: 'none', duration }, at);
+  if (tl) return tl.fromTo(target, { yPercent: fromY }, { yPercent: toY, ease, duration }, at);
 
   return gsap.fromTo(
     target,
     { yPercent: fromY },
-    { yPercent: toY, ease: 'none', duration, scrollTrigger: { trigger, start, end, scrub } }
+    { yPercent: toY, ease, duration, scrollTrigger: { trigger, start, end, scrub } }
   );
 }
 

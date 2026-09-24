@@ -17,8 +17,8 @@ export function initHero() {
   const content = section.querySelector('[data-hero-content]');
 
   /* --- entrance: title system settles into place --- */
-  maskedTextReveal(lines, { duration: 1.35, delay: 0.3, stagger: 0.14 });
-  fadeRise(rises, { delay: 0.55, duration: 1.1, stagger: 0.1, y: 26 });
+  maskedTextReveal(lines, { duration: 1.2, delay: 0.3, stagger: 0.12 });
+  fadeRise(rises, { delay: 0.55, duration: 1, stagger: 0.12, y: 24 });
 
   /* --- scroll exit: short pin holds the composition, one quiet move --- */
   const exit = gsap.timeline({
@@ -26,7 +26,7 @@ export function initHero() {
       trigger: section,
       start: 'top top',
       end: '+=55%',
-      scrub: true,
+      scrub: 1,
       pin: true,
       pinSpacing: true,
       anticipatePin: 1,

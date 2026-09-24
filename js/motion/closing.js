@@ -2,7 +2,7 @@
    The site only handles typography: title, CTA, recession, footer.
    Quiet ending, not an explosion. */
 
-import { maskedTextReveal, fadeRise, revealY, isReduced } from './primitives.js';
+import { maskedTextReveal, fadeRise, isReduced } from './primitives.js';
 
 export function initClosing() {
   const section = document.querySelector('[data-section="closing"]');
@@ -13,33 +13,41 @@ export function initClosing() {
   const footer = section.querySelector('[data-closing-footer]');
   const content = section.querySelector('[data-closing-content]');
 
-  /* the CTA page reprises the dynamic Y-axis reveal — the frame is
-     nearly open by the time the type lands */
-  const media = section.querySelector('.scene__media-wrap--closing');
-  if (media) {
-    revealY(media, {
-      from: 'inset(30% 0 30% 0)',
-      to: 'inset(0 0 0 0)',
-      trigger: section,
-      start: 'top 95%',
-      end: 'top 70%',
-      scrub: 0.6,
-    });
+  /* the CTA page reprises the veil reveal — the footage rests full-size
+     behind the page layer, which retracts upward over a long travel so
+     the frame unfurls instead of snapping open */
+  const veil = section.querySelector('[data-closing-veil]');
+  if (veil) {
+    gsap.fromTo(
+      veil,
+      { clipPath: 'inset(0% 0 0% 0)' },
+      {
+        clipPath: 'inset(0% 0 100% 0)',
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 100%',
+          end: 'top 35%',
+          scrub: 1.4,
+          invalidateOnRefresh: true,
+        },
+      }
+    );
   }
 
   maskedTextReveal(lines, {
     trigger: content,
     start: 'top 78%',
     duration: 1.2,
-    stagger: 0.14,
+    stagger: 0.12,
   });
 
   fadeRise(gsap.utils.toArray('[data-closing-text]:not(.line)'), {
     trigger: content,
     start: 'top 74%',
     delay: 0.3,
-    y: 22,
-    stagger: 0.16,
+    y: 24,
+    stagger: 0.12,
   });
 
   if (cta) {
@@ -49,7 +57,7 @@ export function initClosing() {
       {
         opacity: 1,
         y: 0,
-        duration: 1.1,
+        duration: 1,
         delay: 0.35,
         ease: 'power3.out',
         scrollTrigger: { trigger: content, start: 'top 70%', once: true },
@@ -67,7 +75,7 @@ export function initClosing() {
           trigger: section,
           start: 'center center',
           end: 'bottom bottom',
-          scrub: true,
+          scrub: 1,
         },
       });
     }

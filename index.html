@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IRONCLAD — Strength Club</title>
-  <meta name="description" content="IRONCLAD is a cinematic strength club: barbell strength, mobility and conditioning, coached for people who prefer the hours nobody is watching.">
+  <title>CORE ZONE — Strength Club</title>
+  <meta name="description" content="Core Zone is a cinematic strength club: barbell strength, mobility and conditioning, coached for people who prefer the hours nobody is watching.">
   <link rel="icon" href="data:,">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,7 +42,24 @@
     <a class="header__cta" href="#closing" data-cursor-hover data-cursor-label="JOIN">
       <span>Join</span>
     </a>
+
+    <button class="header__menu-btn" data-menu-btn aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+      <span></span>
+      <span></span>
+    </button>
   </header>
+
+  <nav class="mobile-nav" id="mobile-nav" data-mobile-nav aria-label="Mobile">
+    <div class="mobile-nav__inner">
+      <a class="mobile-nav__link" href="#manifesto" style="--i:0"><span class="mobile-nav__index">01</span><span class="mobile-nav__label">Manifesto</span></a>
+      <a class="mobile-nav__link" href="#philosophy" style="--i:1"><span class="mobile-nav__index">02</span><span class="mobile-nav__label">Philosophy</span></a>
+      <a class="mobile-nav__link" href="#programs" style="--i:2"><span class="mobile-nav__index">03</span><span class="mobile-nav__label">Programs</span></a>
+      <a class="mobile-nav__link" href="#conditioning" style="--i:3"><span class="mobile-nav__index">04</span><span class="mobile-nav__label">Conditioning</span></a>
+      <a class="mobile-nav__link" href="#coaches" style="--i:4"><span class="mobile-nav__index">05</span><span class="mobile-nav__label">Coaches</span></a>
+      <a class="mobile-nav__join" href="#closing" style="--i:5"><span>Join the club</span><span class="card__arrow" aria-hidden="true">→</span></a>
+      <p class="mobile-nav__meta" style="--i:6">apply@ironclad.club<br>Mon–Fri 05:30 — 22:00</p>
+    </div>
+  </nav>
 
   <main>
 
@@ -122,17 +139,19 @@
         <div class="scene__background scene__background--chalk" data-chalk-bg></div>
 
         <div class="scene__media-wrap scene__media-wrap--chalk" data-chalk-clip>
-          <video
-            class="scene__media"
-            data-src="02_chalk%20blast.mp4"
-            data-video
-            muted
-            playsinline
-            loop
-            preload="none"
-            aria-hidden="true"
-            tabindex="-1"></video>
-          <div class="scene__scrim scene__scrim--chalk" aria-hidden="true"></div>
+          <div class="scene__media-scale scene__media-scale--chalk" data-chalk-scale>
+            <video
+              class="scene__media"
+              data-src="02_chalk%20blast.mp4"
+              data-video
+              muted
+              playsinline
+              loop
+              preload="none"
+              aria-hidden="true"
+              tabindex="-1"></video>
+            <div class="scene__scrim scene__scrim--chalk" aria-hidden="true"></div>
+          </div>
         </div>
 
         <div class="scene__content scene__content--chalk" data-chalk-content>
@@ -251,18 +270,22 @@
         <div class="scene__background scene__background--sprinter" data-sprinter-bg></div>
 
         <div class="scene__media-wrap scene__media-wrap--sprinter" data-sprinter-media>
-          <video
-            class="scene__media"
-            data-src="03_sprinting_on_track.mp4"
-            data-video
-            muted
-            playsinline
-            loop
-            preload="none"
-            aria-hidden="true"
-            tabindex="-1"></video>
-          <div class="scene__scrim scene__scrim--sprinter" aria-hidden="true"></div>
+          <div class="scene__media-scale" data-sprinter-scale>
+            <video
+              class="scene__media"
+              data-src="03_sprinting_on_track.mp4"
+              data-video
+              muted
+              playsinline
+              loop
+              preload="none"
+              aria-hidden="true"
+              tabindex="-1"></video>
+            <div class="scene__scrim scene__scrim--sprinter" aria-hidden="true"></div>
+          </div>
         </div>
+
+        <div class="scene__veil scene__veil--sprinter" data-sprinter-veil aria-hidden="true"></div>
 
         <div class="scene__content scene__content--sprinter" data-sprinter-content>
           <p class="eyebrow" data-sprinter-text>CONDITIONING</p>
@@ -298,6 +321,7 @@
             preload="none"
             aria-hidden="true"
             tabindex="-1"></video>
+          <div class="coaches__veil" data-coach-veil aria-hidden="true"></div>
           <div class="coaches__caption">
             <span aria-hidden="true">04</span>
             <span>HEAD COACH — IN SESSION</span>
@@ -398,6 +422,8 @@
           <div class="scene__scrim scene__scrim--closing" aria-hidden="true"></div>
         </div>
 
+        <div class="scene__veil scene__veil--closing" data-closing-veil aria-hidden="true"></div>
+
         <div class="scene__content scene__content--closing" data-closing-content>
           <p class="eyebrow eyebrow--center" data-closing-text>MEMBERSHIP</p>
 
@@ -415,24 +441,33 @@
         </div>
 
         <footer class="footer" data-closing-footer>
-          <div class="footer__col">
-            <span class="footer__label">CLUB</span>
-            <span>IRONCLAD Athletic Club</span>
-            <span>44 Foundry Lane, Unit B</span>
+          <p class="footer__word" aria-hidden="true">CORE ZONE</p>
+          <div class="footer__grid">
+            <div class="footer__col">
+              <span class="footer__label">CLUB</span>
+              <span>Core Zone Fitness Club</span>
+              <span>44 Foundry Lane, Unit B</span>
+            </div>
+            <div class="footer__col">
+              <span class="footer__label">HOURS</span>
+              <span>Mon–Fri 05:30 — 22:00</span>
+              <span>Sat–Sun 07:00 — 18:00</span>
+            </div>
+            <div class="footer__col">
+              <span class="footer__label">CONTACT</span>
+              <a href="mailto:apply@ironclad.club" data-cursor-hover>apply@ironclad.club</a>
+              <a href="tel:+15550142200" data-cursor-hover>+1 555 014 2200</a>
+            </div>
+            <div class="footer__col">
+              <span class="footer__label">SOCIAL</span>
+              <a href="#" data-cursor-hover>Instagram <span aria-hidden="true">↗</span></a>
+              <a href="#" data-cursor-hover>YouTube <span aria-hidden="true">↗</span></a>
+              <a href="#" data-cursor-hover>TikTok <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
-          <div class="footer__col">
-            <span class="footer__label">HOURS</span>
-            <span>Mon–Fri 05:30 — 22:00</span>
-            <span>Sat–Sun 07:00 — 18:00</span>
-          </div>
-          <div class="footer__col">
-            <span class="footer__label">CONTACT</span>
-            <a href="mailto:apply@ironclad.club" data-cursor-hover>apply@ironclad.club</a>
-            <a href="tel:+15550142200" data-cursor-hover>+1 555 014 2200</a>
-          </div>
-          <div class="footer__col footer__col--end">
-            <span class="footer__label">© 2026</span>
-            <span>All rights reserved</span>
+          <div class="footer__bar">
+            <span>© 2026 Core Zone — All rights reserved</span>
+            <a class="footer__top" href="#hero" data-cursor-hover>Back to top <span aria-hidden="true">↑</span></a>
           </div>
         </footer>
 
@@ -443,6 +478,7 @@
 
   <script src="js/vendor/gsap.min.js"></script>
   <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
   <script type="module" src="js/main.js"></script>
   <script>document.documentElement.classList.add('js');</script>
 </body>

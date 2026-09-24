@@ -13,15 +13,15 @@ export function initManifesto() {
   maskedTextReveal(lines, {
     trigger: section,
     start: 'top 68%',
-    duration: 1.25,
-    stagger: 0.14,
+    duration: 1.2,
+    stagger: 0.12,
   });
 
   fadeRise(fades, {
     trigger: section,
     start: 'top 60%',
     delay: 0.5,
-    y: 20,
-    stagger: 0.2,
+    y: 24,
+    stagger: 0.12,
   });
 }

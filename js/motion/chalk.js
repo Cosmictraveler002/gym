@@ -1,9 +1,8 @@
 /* chalk.js — SIGNATURE SEQUENCE #1.
-   The exact choreography the manifesto carried, now living here:
-   the window opens along the Y axis while the backdrop travels hard
-   against it; the footage arrives as a 30%-scale panel at the LEFT
-   corner, floats upward while it grows to full frame — and only then
-   the message appears in the negative space. */
+   The footage enters from the BOTTOM: the window opens upward off the
+   bottom edge while the panel rises along the Y axis and grows 30%→100%
+   out of the bottom-LEFT corner — one diagonal move, eased smooth —
+   and only then the message appears in the negative space. */
 
 import { pinSequence, revealY, scaleMedia, parallaxLayer, isReduced } from './primitives.js';
 
@@ -13,7 +12,7 @@ export function initChalk() {
 
   const pin = section.querySelector('[data-chalk-pin]');
   const clip = section.querySelector('[data-chalk-clip]');
-  const video = clip ? clip.querySelector('video') : null;
+  const scale = section.querySelector('[data-chalk-scale]');
   const bg = section.querySelector('[data-chalk-bg]');
   const lines = gsap.utils.toArray('[data-chalk-text].line');
   const fades = gsap.utils.toArray('[data-chalk-text]:not(.line)');
@@ -27,25 +26,28 @@ export function initChalk() {
 
   gsap.set(lines, { yPercent: 110 });
   gsap.set(fades, { opacity: 0, y: 24 });
+  /* diagonal growth needs the corner pinned before the timeline runs */
+  if (scale) gsap.set(scale, { transformOrigin: '0% 100%', yPercent: 12 });
 
   const mm = gsap.matchMedia();
 
   /* ---------- desktop: pinned choreography, one ScrollTrigger ---------- */
   mm.add('(min-width: 861px)', () => {
-    const tl = pinSequence(pin, { end: '+=170%', scrub: 0.85 });
+    const tl = pinSequence(pin, { end: '+=170%', scrub: 1 });
     if (!tl) return;
 
-    /* 0–36%: the window opens along the Y axis */
-    revealY(clip, { tl, from: 'inset(30% 0 30% 0)', to: 'inset(0 0 0 0)', duration: 0.4 });
+    /* the window opens upward from the bottom edge */
+    revealY(clip, { tl, from: 'inset(60% 0 0% 0)', to: 'inset(0% 0 0% 0)', duration: 0.4 });
     /* the backdrop travels hard against the reveal — the dynamic parallax */
     if (bg) parallaxLayer(bg, 16, -16, { tl, duration: 1, at: 0 });
-    /* the panel floats upward as it grows, settling before the type */
-    if (video) parallaxLayer(video, 4, 0, { tl, duration: 0.72, at: 0 });
-    /* 14–54%: the 30%-scale left panel grows to full frame */
-    if (video) scaleMedia(video, 0.3, 1, { tl, duration: 0.44, at: 0.16 });
-    /* late: the message arrives, layers at different rates */
-    tl.to(lines, { yPercent: 0, duration: 0.26, stagger: 0.07, ease: 'power4.out' }, 0.72);
-    tl.to(fades, { opacity: 1, y: 0, duration: 0.2, stagger: 0.07, ease: 'power2.out' }, 0.78);
+    if (scale) {
+      /* rise along Y while growing out of the bottom-left corner */
+      tl.to(scale, { yPercent: 0, ease: 'power2.out', duration: 0.62 }, 0);
+      scaleMedia(scale, 0.3, 1, { tl, duration: 0.5, at: 0.12, ease: 'power2.out' });
+    }
+    /* late: the message arrives after the frame is full */
+    tl.to(lines, { yPercent: 0, duration: 0.26, stagger: 0.07, ease: 'none' }, 0.72);
+    tl.to(fades, { opacity: 1, y: 0, duration: 0.2, stagger: 0.07, ease: 'none' }, 0.78);
   });
 
   /* ---------- mobile: same idea, no pin ---------- */
@@ -55,15 +57,17 @@ export function initChalk() {
         trigger: section,
         start: 'top 92%',
         end: 'top 8%',
-        scrub: 0.7,
+        scrub: 0.9,
         invalidateOnRefresh: true,
       },
     });
 
-    revealY(clip, { tl, from: 'inset(30% 0 30% 0)', to: 'inset(0 0 0 0)', duration: 0.45 });
+    revealY(clip, { tl, from: 'inset(60% 0 0% 0)', to: 'inset(0% 0 0% 0)', duration: 0.45 });
     if (bg) parallaxLayer(bg, 16, -16, { tl, duration: 1, at: 0 });
-    if (video) parallaxLayer(video, 4, 0, { tl, duration: 0.72, at: 0 });
-    if (video) scaleMedia(video, 0.3, 1, { tl, duration: 0.5, at: 0.2 });
+    if (scale) {
+      tl.to(scale, { yPercent: 0, ease: 'power2.out', duration: 0.7 }, 0);
+      scaleMedia(scale, 0.3, 1, { tl, duration: 0.5, at: 0.2, ease: 'power2.out' });
+    }
 
     /* the frame is full before the message lands */
     gsap.to(lines, {
