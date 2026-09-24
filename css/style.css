@@ -1163,10 +1163,41 @@ body.nav-open { overflow: hidden; }
   .scroll-hint { display: none; }
 
   .scene__content--hero {
-    bottom: clamp(3rem, 9vh, 5rem);
-    max-width: 100vw;
+    left: var(--gutter);
+    right: var(--gutter);
+    bottom: clamp(2.5rem, 7vh, 4rem);
+    max-width: none;
+    gap: clamp(0.9rem, 2.2vh, 1.4rem);
   }
-  .display--hero { font-size: clamp(3rem, 17vw, 6rem); }
+  .display--hero {
+    font-size: clamp(2.9rem, 16.5vw, 6rem);
+    line-height: 0.95;
+  }
+  /* eyebrow stops breaking mid-phrase: smaller measure, taller wrap */
+  .scene__content--hero .eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.24em;
+    line-height: 1.9;
+    text-wrap: balance;
+  }
+  .scene__content--hero .eyebrow::before { width: 1.6rem; }
+  /* lede reads at one comfortable width */
+  .scene__content--hero .lede {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 34ch;
+  }
+  /* CTAs stack full-width: one thumb target per row */
+  .scene__content--hero .actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+  }
+  .scene__content--hero .btn {
+    font-size: 0.85rem;
+    padding: 1.15em 1.5em;
+  }
 
   .scene__content--chalk,
   .scene__content--sprinter {
